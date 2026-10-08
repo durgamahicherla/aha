@@ -1,0 +1,16 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Latestrelease } from '../model/latestrelease';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LatestreleaseService {
+  private baseurl1 = "http://localhost:8081/api/v1/latestreleasedata";
+  constructor(private http:HttpClient){}
+  onsubmit():Observable<Latestrelease[]> {
+    return this.http.get<Latestrelease[]> (this.baseurl1);
+  }
+}
+
